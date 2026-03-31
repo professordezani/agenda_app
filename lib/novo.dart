@@ -23,7 +23,7 @@ class NovoPage extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () => Navigator.pop(context),
               child: Text("Salvar"),
             ),
           ],

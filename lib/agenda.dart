@@ -8,9 +8,15 @@ class AgendaPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Agenda"),
+        actions: [
+          IconButton(
+            onPressed: () => Navigator.pushReplacementNamed(context, "/login"),
+            icon: Icon(Icons.logout_outlined),
+          ),
+        ]
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => Navigator.pushNamed(context, "/novo"),
         child: Icon(Icons.add),
       ),
     );

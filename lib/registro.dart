@@ -42,7 +42,10 @@ class RegistroPage extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () => Navigator
+                .of(context)
+                ..pop()
+                ..pushReplacementNamed("/agenda"),
               child: Text("Registrar"),
             ),
             TextButton(

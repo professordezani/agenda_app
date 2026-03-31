@@ -35,7 +35,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () => Navigator.pushReplacementNamed(context, "/agenda"),
               child: Text("Entrar"),
             ),
             TextButton(
