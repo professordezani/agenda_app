@@ -39,7 +39,8 @@ class LoginPage extends StatelessWidget {
               child: Text("Entrar"),
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () => Navigator
+                .pushNamed(context, "/registro"),
               child: Text("Registrar"),
             ),
           ]

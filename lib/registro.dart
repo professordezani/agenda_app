@@ -46,7 +46,7 @@ class RegistroPage extends StatelessWidget {
               child: Text("Registrar"),
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () => Navigator.pop(context),
               child: Text("Voltar"),
             ),
           ]
