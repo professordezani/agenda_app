@@ -15,6 +15,8 @@ class NovoPage extends StatelessWidget {
           spacing: 16,
           children: [
             TextField(
+              minLines: 1,
+              maxLines: 5,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: "Descrição",

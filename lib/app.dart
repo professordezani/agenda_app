@@ -11,7 +11,13 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(useMaterial3: true),
-      home: NovoPage()
+      routes: {
+        "/login": (context) => LoginPage(),
+        "/registro": (context) => RegistroPage(),
+        "/agenda": (context) => AgendaPage(),
+        "/novo": (context) => NovoPage(),
+      },
+      initialRoute: "/login",
     );
   }
 }
