@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class RegistroPage extends StatelessWidget {
   const RegistroPage({super.key});
@@ -38,21 +39,27 @@ class RegistroPage extends StatelessWidget {
                 suffixIcon: IconButton(
                   onPressed: () {}, // Exercício.
                   icon: Icon(Icons.remove_red_eye_sharp),
-                )
+                ),
               ),
             ),
             ElevatedButton(
-              onPressed: () => Navigator
-                .of(context)
-                ..pop()
-                ..pushReplacementNamed("/agenda"),
+              onPressed: () async {
+                await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                  email: "a@b.com",
+                  password: "123456",
+                );
+
+                Navigator.of(context)
+                  ..pop()
+                  ..pushReplacementNamed("/agenda");
+              },
               child: Text("Registrar"),
             ),
             TextButton(
               onPressed: () => Navigator.pop(context),
               child: Text("Voltar"),
             ),
-          ]
+          ],
         ),
       ),
     );
