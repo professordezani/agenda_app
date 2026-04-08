@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class RegistroPage extends StatelessWidget {
-  const RegistroPage({super.key});
+  // const RegistroPage({super.key});
+
+  TextEditingController txtNome = TextEditingController();
+  TextEditingController txtEmail = TextEditingController();
+  TextEditingController txtSenha = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +18,7 @@ class RegistroPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
+              controller: txtNome,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: "Nome",
@@ -21,16 +26,15 @@ class RegistroPage extends StatelessWidget {
               ),
             ),
             TextField(
+              controller: txtEmail,
               decoration: InputDecoration(
-                // filled: true,
-                // fillColor: Colors.blue[100],
-                // border: InputBorder.none
                 border: OutlineInputBorder(),
                 labelText: "E-mail",
                 prefixIcon: Icon(Icons.email_outlined),
               ),
             ),
             TextField(
+              controller: txtSenha,
               obscureText: true,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -44,10 +48,13 @@ class RegistroPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () async {
-                await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                  email: "a@b.com",
-                  password: "123456",
-                );
+                var credential = await FirebaseAuth.instance
+                    .createUserWithEmailAndPassword(
+                      email: txtEmail.text,
+                      password: txtSenha.text,
+                    );
+
+                await credential.user?.updateDisplayName(txtNome.text);
 
                 Navigator.of(context)
                   ..pop()
